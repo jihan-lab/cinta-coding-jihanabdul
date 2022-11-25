@@ -18,12 +18,7 @@ function Button(props) {
   }
 
   return (
-    <button
-      className={className.join(" ")}
-      style={props.style}
-      onClick={props.onClick}
-      type="submit"
-    >
+    <button className={className.join(" ")} style={props.style} type="submit">
       {props.children}
     </button>
   );

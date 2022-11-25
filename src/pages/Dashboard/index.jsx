@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ContentDashboard, Header, Input } from "../../assets/components";
+import { useLocation } from "react-router-dom";
+import { getData } from "../../utils";
 
 function Dashboard() {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const data = getData("user");
+    setUser(data);
+    // console.log("data local storage : ", data);
+  }, []);
+  const { state } = useLocation();
+  const { username } = state;
   return (
     <section className="mb-5">
-      <Header />
+      <Header name={user.username} />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-6 mt-5">

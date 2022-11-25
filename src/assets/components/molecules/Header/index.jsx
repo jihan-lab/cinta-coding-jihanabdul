@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../atoms";
 
-function Header() {
+function Header({ name }) {
   return (
     <nav className="mt-5">
       <div className="container">
@@ -29,7 +29,7 @@ function Header() {
           </div>
           <div className="col-lg-4  col-md-12 justify-content-end d-flex align-items-end">
             <div className="h3 fw-bold text-dark">
-              Welcome, <span className="text-primary">Abit</span>
+              Welcome, <span className="text-primary">{name}</span>
             </div>
           </div>
         </div>
