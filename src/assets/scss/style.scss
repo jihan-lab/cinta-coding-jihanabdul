@@ -1,1 +1,54 @@
 @import "./bootstrap/scss/bootstrap.scss";
+
+p {
+  text-align: justify;
+}
+.login {
+  height: 100vh;
+}
+
+.btn-primary {
+  border-radius: 40px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.text-secondary {
+  color: $gray-500 !important;
+}
+.form-control {
+  border-radius: 40px;
+  border-color: $primary;
+}
+
+.content-login {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.post {
+  border-bottom: 3px solid;
+  border-color: $primary;
+  margin-bottom: -3px;
+}
+
+.input-search {
+  border-color: $gray-200;
+  background-color: $gray-200;
+  background-image: url("../images/icons/ic-search.png");
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  background-size: 20px;
+  padding-right: 45px;
+}
+
+.input-search[type=text] {
+  border-color: $gray-200;
+  background-color: $gray-200;
+}
+
+.arrow-back{
+  background-color: transparent;
+  border-color: transparent;
+}
