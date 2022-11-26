@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, ContentDashboard, Header } from "../../assets/components";
 import { IconArrowBack } from "../../assets/images";
+import { getData } from "../../utils";
 
 function DetailProfile() {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const data = getData("user");
+    setUser(data);
+    console.log(data);
+  }, []);
   return (
     <section>
       <Header />
@@ -29,7 +36,7 @@ function DetailProfile() {
                           <td width={200} className="text-secondary fw-bold">
                             :
                           </td>
-                          <td className="fw-bold">Jihan Abdul Rohman</td>
+                          <td className="fw-bold">{user.username}</td>
                         </tr>
                         <tr>
                           <td
@@ -42,7 +49,7 @@ function DetailProfile() {
                           <td width={150} className="text-secondary fw-bold">
                             :
                           </td>
-                          <td className="fw-bold">jihan@gmail.com</td>
+                          <td className="fw-bold">{user.email}</td>
                         </tr>
                         <tr>
                           <td
@@ -55,7 +62,7 @@ function DetailProfile() {
                           <td width={150} className="text-secondary fw-bold">
                             :
                           </td>
-                          <td className="fw-bold">Cisauk Erpak</td>
+                          <td className="fw-bold">{user.address?.city}</td>
                         </tr>
                         <tr>
                           <td
@@ -68,7 +75,7 @@ function DetailProfile() {
                           <td width={150} className="text-secondary fw-bold">
                             :
                           </td>
-                          <td className="fw-bold">089667334862</td>
+                          <td className="fw-bold">{user.phone}</td>
                         </tr>
                       </tbody>
                     </table>

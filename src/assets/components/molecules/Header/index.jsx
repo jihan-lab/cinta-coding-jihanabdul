@@ -1,7 +1,15 @@
-import React from "react";
+import userEvent from "@testing-library/user-event";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getData } from "../../../../utils";
 import { Button } from "../../atoms";
 
 function Header({ name }) {
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    const data = getData("user");
+    setUser(data);
+  }, []);
   return (
     <nav className="mt-5">
       <div className="container">
@@ -29,7 +37,14 @@ function Header({ name }) {
           </div>
           <div className="col-lg-4  col-md-12 justify-content-end d-flex align-items-end">
             <div className="h3 fw-bold text-dark">
-              Welcome, <span className="text-primary">{name}</span>
+              <span>Welcome, </span>
+              <Link
+                style={{ textDecoration: "none" }}
+                className="text-primary"
+                to={`/profile/${user.id}`}
+              >
+                {user.username}
+              </Link>
             </div>
           </div>
         </div>

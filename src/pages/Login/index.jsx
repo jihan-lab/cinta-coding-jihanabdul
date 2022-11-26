@@ -14,14 +14,20 @@ function Login() {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/users`
     );
+
+    let found = false;
     response.data.map((item) => {
       const getUsername = item.username;
       if (getUsername === username) {
+        found = true;
         setUsername(getUsername);
         storeData("user", item);
-        history("/dashboard", { state: { username: username } });
+        history("/dashboard");
       }
     });
+    if (!found) {
+      alert(`Maaf, data atas nama username ${username} tidak tersedia`);
+    }
   };
 
   return (

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../../atoms";
 import AllComment from "./allComment";
 
 function ContentDashboard({
@@ -11,11 +12,12 @@ function ContentDashboard({
   showComment,
   nameComment,
   descComment,
+  href,
 }) {
   if (showComment) {
     return <AllComment nameComment={nameComment} descComment={descComment} />;
   }
-  const Detail = () => {
+  const Detail = ({ href }) => {
     if (noDetail) {
       return (
         <>
@@ -31,20 +33,28 @@ function ContentDashboard({
       <>
         <i className="fa fa-comment-o" aria-hidden="true"></i>
         <p className="d-inline ms-2 text-primary">
-          {countComment} <span className="float-end me-5">Detail</span>
+          {countComment}
+          <Button
+            style={{ textDecoration: "none" }}
+            type="link"
+            href={href}
+            className="float-end me-5"
+          >
+            Detail
+          </Button>
         </p>
       </>
     );
   };
   return (
     <div className="row mt-4">
-      <div className="col-lg-1">
+      <div className="col-lg-2">
         <p className="fw-bold">{name}</p>
       </div>
-      <div className="col-lg-11">
+      <div className="col-lg-10">
         <p className={className}>{desc}</p>
         <div className="col-lg-4 col-sm-4">
-          <Detail />
+          <Detail href={href} />
         </div>
       </div>
     </div>
