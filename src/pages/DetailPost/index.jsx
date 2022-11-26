@@ -50,26 +50,47 @@ function DetailPosting() {
               <ContentDashboard
                 name={user.username}
                 className="text-secondary"
-                countComment={comment}
                 desc={desc}
-                noDetail
+                noComment
               />
+              <div className="row">
+                <div className="col-lg-2"></div>
+                <div className="col-lg-10">
+                  <div className="col-lg-4 col-sm-4">
+                    <a
+                      data-bs-toggle="collapse"
+                      href="#allComment"
+                      className="fa fa-comment-o text-decoration-none"
+                    ></a>
+                    <a
+                      data-bs-toggle="collapse"
+                      href="#allComment"
+                      className="d-inline ms-2 text-primary text-decoration-none"
+                    >
+                      {comment}
+                    </a>
+                  </div>
+                </div>
+              </div>
 
               {/* All Comment */}
 
-              <div className="row d-flex justify-content-end mt-3">
-                <div className="col col-10">
-                  <p className="fw-bold text-muted ">All Comment</p>
+              <div className="collapse mb-5" id="allComment">
+                <div className="row d-flex justify-content-end mt-3">
+                  <div className="col col-10">
+                    <p className="fw-bold text-muted">All Comment</p>
+                  </div>
                 </div>
+
+                {allComment.map((item) => (
+                  <ContentDashboard
+                    key={item.id}
+                    showComment
+                    descComment={item.body}
+                    nameComment={item.name}
+                  />
+                ))}
               </div>
-              {allComment.map((item) => (
-                <ContentDashboard
-                  key={item.id}
-                  showComment
-                  descComment={item.body}
-                  nameComment={item.name}
-                />
-              ))}
             </div>
           </div>
         </div>

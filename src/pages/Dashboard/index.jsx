@@ -79,31 +79,33 @@ function Dashboard() {
         </div>
         <div className="container">
           <div
-            style={{ height: "40vh" }}
-            className="d-flex justify-content-end align-items-end"
+            style={{ height: "15vh" }}
+            className=" d-flex align-items-end justify-content-end"
           >
             <div className="row">
-              <div className="col col-lg-12 col-md-6 col-sm-4">
-                <ReactPaginate
-                  nextLabel="next >"
-                  onPageChange={handlePageClick}
-                  pageRangeDisplayed={3}
-                  marginPagesDisplayed={2}
-                  pageCount={pageCount}
-                  previousLabel="< previous"
-                  pageClassName="page-item"
-                  pageLinkClassName="page-link"
-                  previousClassName="page-item"
-                  previousLinkClassName="page-link"
-                  nextClassName="page-item"
-                  nextLinkClassName="page-link"
-                  breakLabel="..."
-                  breakClassName="page-item"
-                  breakLinkClassName="page-link"
-                  containerClassName="pagination"
-                  activeClassName="active"
-                  renderOnZeroPageCount={null}
-                />
+              <div className="col">
+                <div className="pagination">
+                  <ReactPaginate
+                    nextLabel="next"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={1}
+                    pageCount={pageCount}
+                    previousLabel="prev"
+                    pageClassName=""
+                    pageLinkClassName="page-item-custom ms-3 text-decoration-none"
+                    previousClassName=""
+                    previousLinkClassName="ms-3 text-decoration-none icon-pagination-custom"
+                    nextClassName=""
+                    nextLinkClassName="ms-3 text-decoration-none icon-pagination-custom"
+                    breakLabel="..."
+                    breakClassName="icon-pagination-custom"
+                    breakLinkClassName="ms-3 text-decoration-none"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -127,7 +129,7 @@ function Dashboard() {
         <div className="row d-flex justify-content-center">
           <div className="col-lg-6 mt-5">
             <Input placeholder="Search" type="text" search />
-            <PaginatedItems itemsPerPage={1} />
+            <PaginatedItems itemsPerPage={3} />
           </div>
         </div>
       </div>

@@ -53,3 +53,15 @@ p {
   background-color: transparent;
   border-color: transparent;
 }
+
+.icon-pagination-custom{
+  color: $gray-500;
+}
+
+.page-item-custom {
+  border-bottom: 2px solid;
+  border-color: $primary;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: $gray-500;
+}
